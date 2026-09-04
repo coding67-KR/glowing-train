@@ -105,15 +105,13 @@ slint::slint! {
                     }
                 }
 
-                LineEdit {
-                    input := LineEdit {
-                        enabled: playing;
-                        placeholder-text: playing ? (required_char + "로 시작하는 단어") : "게임을 먼저 시작하세요";
-                        font-size: 20px;
-                        padding: 14px;
-                        accepted(text) => {
-                            if (playing) { submit_word(text); input.text = ""; }
-                        }
+                input := LineEdit {
+                    enabled: playing;
+                    placeholder-text: playing ? (required_char + "로 시작하는 단어") : "게임을 먼저 시작하세요";
+                    font-size: 20px;
+                    padding: 14px;
+                    accepted(text) => {
+                        if (playing) { submit_word(text); input.text = ""; }
                     }
                 }
 
