@@ -91,7 +91,11 @@ slint::slint! {
                     VerticalBox {
                         padding: 16px;
                         spacing: 8px;
-                        Text { text: "컴퓨터"; color: #8ea4cf; font-size: 13px; }
+                        Text {
+                            text: "컴퓨터";
+                            color: #8ea4cf;
+                            font-size: 13px;
+                        }
                         Text {
                             text: cpu_word == "" ? "—" : cpu_word;
                             color: white;
@@ -102,16 +106,14 @@ slint::slint! {
                 }
 
                 LineEdit {
-                    id: input;
-                    enabled: playing;
-                    placeholder-text: playing ? (required_char + "로 시작하는 단어") : "게임을 먼저 시작하세요";
-                    font-size: 20px;
-                    padding: 14px;
-                    background: #ffffff;
-                    color: #111827;
-                    border-radius: 14px;
-                    accepted(text) => {
-                        if (playing) { submit_word(text); input.text = ""; }
+                    input := LineEdit {
+                        enabled: playing;
+                        placeholder-text: playing ? (required_char + "로 시작하는 단어") : "게임을 먼저 시작하세요";
+                        font-size: 20px;
+                        padding: 14px;
+                        accepted(text) => {
+                            if (playing) { submit_word(text); input.text = ""; }
+                        }
                     }
                 }
 
@@ -140,7 +142,11 @@ slint::slint! {
                     VerticalBox {
                         padding: 16px;
                         spacing: 7px;
-                        Text { text: "상태"; color: #8ea4cf; font-size: 13px; }
+                        Text {
+                            text: "상태";
+                            color: #8ea4cf;
+                            font-size: 13px;
+                        }
                         Text {
                             text: status_text;
                             color: #eef4ff;
